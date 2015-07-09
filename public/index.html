@@ -1,0 +1,31 @@
+<!-- Filename: public/index.html --> 
+<html ng-app="HackathonFinderApp">
+<head>
+  <title>Hackathon Finder</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+  <script src="hackathonfinder.js"></script>
+</head>
+<body ng-controller="HackathonFinderCtrl" style="font-family:Arial">
+  <h1>Hackathon Finder</h1>
+
+  <div ng-hide="doneLoading">
+    Loading...
+  </div>
+
+  <div ng-show="isLoggedIn === false">
+    <a href="/oauth">Login with Eventbrite</a>
+  </div>
+
+  <div ng-show="isLoggedIn">
+    Find hackathons near: <input type="text" ng-model="location" /><input type="button" ng-click="findEvents()" ng-disabled="location.length == 0" value="Search" /> <input type="button" ng-click="subscribe()" ng-disabled="location.length == 0" value="Subscribe" />
+
+    <div ng-repeat="event in events">
+      <h2><a href="{{event.url}}" target="_blank">{{event.title}}</a></h2>
+
+      <p>{{event.description}}</p>
+
+      <p>{{event.start | date:"MM/dd"}} - {{event.end | date:"MM/dd"}}</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "hackathon-finder",
+  "description": "Hackathon Finder application for Node.js",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "url": "*",
+    "express-session": "*",
+    "cookie-parser": "*",
+    "request": "*",
+    "mongoose": "*",
+    "sendgrid": "*"
+  }
+}
